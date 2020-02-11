@@ -1,63 +1,95 @@
 body {
-	background: #ffea00;
-	text-align: center;
-	margin: 0;
-	padding-top: 50px;
+  background: #ffea00;
+  text-align: center;
+  margin: 0;
+  padding-top: 50px;
 }
 
 #opponent {
-	height: 122px;
+  height: 122px;
+}
+
+#big-text {
+  position: absolute;
+  color: white;
+  font-size: 100px;
+  font-family: sans-serif;
+  font-weight: bold;
+  width: 100%;
+  top: 30%;
 }
 
 #outcome {
-	border: 3px solid black;
-	padding: 34px 0;
-	width: 200px;
-	height: 200px;
-	margin: 0 auto;
-	box-sizing: border-box;
-	font-size: 50px;
-	font-family: Impact, Arial, sans-serif;
+  border: 3px solid black;
+  padding: 34px 0;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-size: 20px;
+  font-family: Impact, Arial, sans-serif;
 }
 
 #player {
-	width: 426px;
-	margin: 30px auto;
-	display: grid;
-	grid-template-columns: 122px 122px 122px;
-	grid-column-gap: 30px;
+  width: 426px;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 122px 122px 122px;
+  grid-column-gap: 30px;
+}
+
+#player-text {
+  font-family: Impact, sans-serif;
+  color: white;
+  font-size: 30px;
+  background-color: rgba(255, 0, 0, 0.3);
+  padding: 10px 0;
+}
+
+.hidden {
+  display: none;
 }
 
 .option {
-	display: inline-block;
-	width: 122px;
-	height: 120px;
-	border: none;
-	margin-right: 20px;
-	background-position: center top;
-	background-size: 100px auto;
-	background-repeat: no-repeat;
-	background-color: #ffea00;
-	cursor: pointer;
+  display: inline-block;
+  width: 122px;
+  height: 120px;
+  border: none;
+  margin-right: 20px;
+  background-position: center top;
+  background-size: 100px auto;
+  background-repeat: no-repeat;
+  background-color: #ffea00;
+  cursor: pointer;
+  transition: 0.22s all;
 }
 
-.option:focus {
-	outline: none;
-	background-position: center 10px;
+.option:focus,
+.optionChosen {
+  outline: none;
+  background-position: center 10px;
+}
+
+#player > .option:hover {
+  transform: scale(1.2);
+}
+
+.optionNotChosen {
+  opacity: 0.3;
 }
 
 .option.hidden {
-	display: none;
+  display: none;
 }
 
 #rock {
-	background-image: url('images/rock.png');
+  background-image: url("images/rock.png");
 }
 
 #paper {
-	background-image: url('images/paper.png');
+  background-image: url("images/paper.png");
 }
 
 #scissors {
-	background-image: url('images/scissors.png');
+  background-image: url("images/scissors.png");
 }
