@@ -10,7 +10,7 @@ let countdownSeconds = 3;
 
 // Elements
 let playerText = document.querySelector("#player-text");
-let bigText = document.querySelector("#big-text");
+let countdownText = document.querySelector("#countdown-text");
 let opponentIcon = document.querySelector("#opponent");
 let buttons = document.querySelectorAll("button");
 let outcome = document.querySelector("#outcome");
@@ -45,18 +45,18 @@ const startGame = () => {
   playerText.classList.remove("hidden");
 
   // Display a big text with a countdown
-  bigText.innerHTML = countdown;
-  bigText.classList.remove("hidden");
+  countdownText.innerHTML = countdown;
+  countdownText.classList.remove("hidden");
 
   startOpponentRoulette();
 
-  let bigTextInterval = setInterval(() => {
+  let countdownTextInterval = setInterval(() => {
     countdown--;
-    bigText.innerHTML = countdown;
+    countdownText.innerHTML = countdown;
 
     if (countdown == 0) {
-      bigText.classList.add("hidden");
-      clearInterval(bigTextInterval);
+      countdownText.classList.add("hidden");
+      clearInterval(countdownTextInterval);
     }
   }, 1000);
 };
