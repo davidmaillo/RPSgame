@@ -1,5 +1,3 @@
-console.log("Connected");
-
 // Game rules
 let yourOption;
 let opponentOption;
@@ -16,13 +14,7 @@ let buttons = document.querySelectorAll("button");
 let outcome = document.querySelector("#outcome");
 
 const play = option => {
-  console.log(`You played ${option}`);
-
   yourOption = option;
-  startGame();
-};
-
-const startGame = () => {
   countdown = countdownSeconds;
 
   // Disable the interface
@@ -30,11 +22,9 @@ const startGame = () => {
 
   buttons.forEach(e => {
     // Emphatize the option what you have chosen (make the other ones a little transparent)
-    if (e.id == yourOption) {
-      e.classList.add("optionChosen");
-    } else {
-      e.classList.add("optionNotChosen");
-    }
+    e.id == yourOption
+      ? e.classList.add("optionChosen")
+      : e.classList.add("optionNotChosen");
 
     // Make the option buttons disabled
     e.disabled = true;
@@ -81,8 +71,6 @@ const startOpponentRoulette = () => {
     clearInterval(changeOpponentIcon);
     finishGame();
   }, countdownSeconds * 1000);
-
-  console.log(opponentIconOptions);
 };
 
 const finishGame = () => {
@@ -120,16 +108,21 @@ const finishGame = () => {
 const addScore = who => {
   if (who == "player") {
     yourScore++;
-    outcome.innerHTML = `<p>You win!</p><p>You: ${yourScore} - Opponent: ${opponentScore}</p>`;
+    outcome.innerHTML = `<p>You win!</p><p>${globalScore()}</p>`;
   }
+
   if (who == "opponent") {
     opponentScore++;
-    outcome.innerHTML = `<p>You lose!</p><p>You: ${yourScore} - Opponent: ${opponentScore}</p>`;
+    outcome.innerHTML = `<p>You lose!</p><p>${globalScore()}</p>`;
   }
 
   if (who == "tie") {
-    outcome.innerHTML = `<p>Tie!</p><p>You: ${yourScore} - Opponent: ${opponentScore}</p>`;
+    outcome.innerHTML = `<p>Tie!</p><p>${globalScore()}</p>`;
   }
+};
+
+const globalScore = () => {
+  return `You: ${yourScore} - Opponent: ${opponentScore}`;
 };
 
 const getRandomNumber = (min, max) => {
