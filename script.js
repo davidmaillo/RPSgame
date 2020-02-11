@@ -72,7 +72,7 @@ const startOpponentRoulette = () => {
     });
 
     // Display one icon randomly every 0.5 seconds
-    let random = getRandomNumber(0, 2);
+    let random = getRandomNumber(0, 3);
     opponentIconOptions[random].classList.remove("hidden");
     opponentOption = opponentIconOptions[random].id;
   }, 500);
