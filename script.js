@@ -86,22 +86,14 @@ const finishGame = () => {
   }, 2000);
 
   // Add +1 point to winner
-  if (yourOption == "paper") {
-    if (opponentOption == "paper") addScore("tie");
-    else if (opponentOption == "rock") addScore("player");
-    else if (opponentOption == "scissors") addScore("opponent");
-  }
-
-  if (yourOption == "rock") {
-    if (opponentOption == "rock") addScore("tie");
-    else if (opponentOption == "scissors") addScore("player");
-    else if (opponentOption == "paper") addScore("opponent");
-  }
-
-  if (yourOption == "scissors") {
-    if (opponentOption == "scissors") addScore("tie");
-    else if (opponentOption == "paper") addScore("player");
-    else if (opponentOption == "rock") addScore("opponent");
+  if (yourOption == opponentOption) addScore("tie");
+  else {
+    if (yourOption == "paper")
+      opponentOption == "scissors" ? addScore("opponent") : addScore("player");
+    if (yourOption == "rock")
+      opponentOption == "paper" ? addScore("opponent") : addScore("player");
+    if (yourOption == "scissors")
+      opponentOption == "rock" ? addScore("opponent") : addScore("player");
   }
 };
 
