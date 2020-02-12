@@ -88,12 +88,19 @@ const finishGame = () => {
   // Add +1 point to winner
   if (yourOption == opponentOption) addScore("tie");
   else {
-    if (yourOption == "paper")
-      opponentOption == "scissors" ? addScore("opponent") : addScore("player");
-    if (yourOption == "rock")
-      opponentOption == "paper" ? addScore("opponent") : addScore("player");
-    if (yourOption == "scissors")
-      opponentOption == "rock" ? addScore("opponent") : addScore("player");
+    switch (yourOption) {
+      case "paper":
+        opponentOption == "scissors"
+          ? addScore("opponent")
+          : addScore("player");
+        break;
+      case "rock":
+        opponentOption == "paper" ? addScore("opponent") : addScore("player");
+        break;
+      case "scissors":
+        opponentOption == "rock" ? addScore("opponent") : addScore("player");
+        break;
+    }
   }
 };
 
